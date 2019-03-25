@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1553522957 source:c:\users\alumno\desktop\obtenermax\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1553526558 source:c:\users\alumno\desktop\clases\obtenermax clase3 25 marzo\main.c
+	<stdio.h>
+	<stdlib.h>
+
