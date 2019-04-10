@@ -1,8 +1,14 @@
 10/4/2019
-Las estructuras son programas que nos permiten almacenar distintos tipos de datos, por ejemplo en un cliente: edad, sexo, domicilio, dni, etc.
-Para armarlas primero hay que determinar el vector y el tipo de dato (char, int, etc).
+Las estructuras son programas que nos permiten almacenar distintos tipos de datos, por ejemplo en un cliente: 
+edad, sexo, domicilio, dni, etc. Las ventajas que tiene es que podemos armar una estructura de vectores con distintos tipos
+de datos. Las estructuras no guardan datos, solo los almacenan mientras el programa esté activo.
+
 
 	Las estructuras se definen antes del main y luego de los includes necesarios, se le declara un nombre y luego dentro de la estructura definimos
- el tipo de dato y el nombre de ese dato (por ejemplo el sexo, nombre y apellido). Posteriormente se hace la llamada de la estructura dentro del main para usarla y se 
-declara una variable con un nombre de dato "struct".
+vectores con el tipo de dato (char, int, etc) y el nombre de ese dato (por ejemplo el sexo, nombre y apellido). Posteriormente se hace la llamada de la estructura 
+dentro del main para usarla y se declara una variable con un nombre de dato "struct".
+	Dentro de la llamada hay que usar el nombre de la variable de la estructura mediante un punto y el nombre del campo que quiero utilizar, por ejemplo:
+	
+	strcpy(agenda.nombre, "Nombre");
 
+	
