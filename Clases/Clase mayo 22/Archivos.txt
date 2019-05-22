@@ -1,0 +1,88 @@
+Archivos:
+
+•Los archivos sirven para que cuando hagamos un programa y carguemos datos, queden guardados en estos archivos. Por 
+ejemplo los empleados. 
+•Los archivos no tienen indice, pero tienen señaladores, que recorren el archivo por cantidad de bytes.
+•Para trabajar con archivos, necesito la misma cantidad de punteros a FIlE como archivos con los que trabajamos.
+•La cantidad de archivos que se pueden abrir al mismo tiempo depende del sistema operativo.
+• No se debe modificar el valor del puntero devuelto por 'fopen()'.
+
+
+Archivos binarios:
+
+Solo trabajan con caracteres y están asociados a las estructuras y/o interpretación binaria.
+
+Archivos de texto:
+
+Trabajan con cadenas de caracteres y están asociados al "Texto plano". Estos no pueden ser leidos si los abrimos 
+directamente desde el visualizador de texto, pero sí desde los editores de texto (Notepad, Notepad++, etc).
+
+Funciones de archivos:
+
+Todas las funciones de archivos empiezan con f de file.
+
+•Fopen: Abre el archivo para poder trabajarlo. Recibe el nombre del archivo, es una cadena de caracteres que representa
+el archivo , es decir se pone la ruta y el nombre del archivo. También recibe el modo. Si se puede abrir nos va a devolver 
+una direccion de memoria y si no hay manera de acceder al archivo, ya sea porque no existe u otra razón, nos devuelve NULL.
+Si abro el archivo en modo w y no existe, lo crea y se abre en modo w(escritura), si el archivo existe, borra todo lo
+escrito en el archivo y lo abre. Por eso para abrirlo a partir de la segunda vez si quiero abrirlo en modo lectura y
+escritura, lo abro en modo r+(Lectura y escritura) ya que así no se borra. El modo w+ es lectura y escritura pero es lo
+mismo que el w, borra todo y empieza de cero el archivo.
+
+•Fclose: Recibe el archivo trabajado y lo cierra.
+
+•Fcloseall: Cierra todos los archivos.
+
+•Fread: Esta función lee. 
+
+El prototipo de la función es el siguiente:
+int  fread ( void * destino , size_t tamaño , size_t cantidad , FILE *arch );
+
+* Destino: Es un puntero al lugar donde se va a dejar el dato leido con fread
+* Tamaño: Es el tamaño en bytes del dato a leer
+* Cantidad: Es la cantidad de elementos de longitud tamaño que se van a leer
+* Arch: Es el puntero a la estructura FILE asociada al archivo desde el que se va a leer.
+* Retorno: Devuelve la cantidad de datos leídos.
+
+La lectura es del disco a la memoria.
+
+•Fwrite: Esta función escribe los archivos de texto o binarios. Recibe:
+
+El prototipo de la función es el siguiente:
+int  fwrite ( void * origen , size_t tamaño , size_t cantidad , FILE *arch);
+
+* Origen: Es un puntero al lugar desde donde se obtienen los datos para escribir en el archivo.
+* Tamaño: Es el tamaño en bytes del dato que se va a escribir(podemos usar sizeof).
+* Cantidad: Es la cantidad de datos de longitud tamaño que se van a escribir.
+* Arch: Es el puntero a FILE asociado al archivo.
+* Retorno: Devuelve la cantidad de datos escritos.
+
+La escritura es de memoria al disco.
+
+•Feof: Esta funcion recorre el archivo mediante un señalador que indica con un 1 que llegó a recorrer todo el archivo y 
+0 indica que no recorrió todo el archivo.
+
+•Ferror: Lo usamos para controlar errores.
+
+•Frewind: Esta función rebobina el archivo, esto quiere decir que mueve el señalador al principio del archivo.
+
+•Fseek: Puedo moverme adonde yo quiera en el archivo ya que me permite moverme al principio, al final o desde donde está 
+el señalador.
+
+El prototipo es:
+int  fseek ( FILE *arch , long desplazamiento , int  origen);
+
+* Arch: Puntero a la estructura FILE asociada con el archivo
+* Desplazamiento: Es la cantidad de bytes que se desplazará el indicador de posición a partir de origen. Luego de escribir 
+la cantidad de bytes, se escribe una L, de Long.
+* Origen: Es una constante que determina el punto de referencia a partir del cuál se realiza el desplazamiento.
+
+
+•Ftell: Me permite saber la cantidad de bytes que hay entre el señalador y el final del archivo.
+
+•Fscanf: Cargamos un dato a través de la lectura de un archivo.
+
+•Fprintf: Esta funcion escribe lo escrito en el archivo. 
+
+Estructura FILE:
+Se escribe FILE en mayuscula y contiene todo lo que necesitamos para trabajar con archivos.
