@@ -66,7 +66,7 @@ La escritura es de memoria al disco.
 
 •Frewind: Esta función rebobina el archivo, esto quiere decir que mueve el señalador al principio del archivo.
 
-•Fseek: Puedo moverme adonde yo quiera en el archivo ya que me permite moverme al principio, al final o desde donde está 
+•Fseek: Puedo moverme a donde yo quiera en el archivo ya que me permite moverme al principio, al final o desde donde está 
 el señalador.
 
 El prototipo es:
@@ -76,9 +76,16 @@ int  fseek ( FILE *arch , long desplazamiento , int  origen);
 * Desplazamiento: Es la cantidad de bytes que se desplazará el indicador de posición a partir de origen. Luego de escribir 
 la cantidad de bytes, se escribe una L, de Long.
 * Origen: Es una constante que determina el punto de referencia a partir del cuál se realiza el desplazamiento.
+* Retorno:  Si la operación es exitosa devuelve cero , caso contrario retorna un valor distinto de cero.
 
+Los valores que se le pueden dar a origen figuran en el siguiente texto:
+SEEK_SET A partir del comienzo del archivo.
+SEEK_CUR A partir de la posición actual del archivo.
+SEEK_END A partir de el final del archivo.
 
 •Ftell: Me permite saber la cantidad de bytes que hay entre el señalador y el final del archivo.
+* Retorno: Si la operación es exitosa devuelve la cantidad de bytes que hay desde el commienzo del archivo hasta el lugar 
+en que se encuentra el indicador de posición del archivo , en caso contrario devuelve –1L (-1 como tipo long).
 
 •Fscanf: Cargamos un dato a través de la lectura de un archivo.
 
